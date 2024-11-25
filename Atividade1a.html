@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1 - Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .aprovado {
+            color: blue;
+        }
+        .reprovado {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atividade 1</h1>
+    
+    <p>Digite a primeira nota:</p>
+    <input type="number" id="nota1" step="0.1">
+    <p>Digite a segunda nota:</p>
+    <input type="number" id="nota2" step="0.1">
+    <button onclick="calcularMedia()">Calcular</button>
+
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+
+    <script>
+        function calcularMedia() {
+            // Obter as notas dos inputs
+            let nota1 = parseFloat(document.getElementById("nota1").value);
+            let nota2 = parseFloat(document.getElementById("nota2").value);
+
+            // Calcular a média
+            let media = (nota1 + nota2) / 2;
+
+            // Determinar a situação
+            let situacao = (media >= 6) ? "Aprovado" : "Reprovado";
+            let cor = (media >= 6) ? "aprovado" : "reprovado";
+
+            // Exibir a média e a situação
+            document.getElementById("media").innerHTML = media;
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").className = cor;
+        }
+    </script>
+</body>
+</html>
